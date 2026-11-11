@@ -1,0 +1,371 @@
+{
+  "iskra-idle": {
+    "file": "iskra-idle.png",
+    "group": "party",
+    "frameW": 48,
+    "frameH": 48,
+    "frames": 4,
+    "fps": 6,
+    "loop": true,
+    "originX": 20,
+    "originY": 46
+  },
+  "iskra-attack": {
+    "file": "iskra-attack.png",
+    "group": "party",
+    "frameW": 48,
+    "frameH": 48,
+    "frames": 6,
+    "fps": 14,
+    "loop": false,
+    "originX": 20,
+    "originY": 46
+  },
+  "iskra-hurt": {
+    "file": "iskra-hurt.png",
+    "group": "party",
+    "frameW": 48,
+    "frameH": 48,
+    "frames": 3,
+    "fps": 10,
+    "loop": false,
+    "originX": 20,
+    "originY": 46
+  },
+  "iskra-defend": {
+    "file": "iskra-defend.png",
+    "group": "party",
+    "frameW": 48,
+    "frameH": 48,
+    "frames": 3,
+    "fps": 6,
+    "loop": true,
+    "originX": 20,
+    "originY": 46
+  },
+  "borek-idle": {
+    "file": "borek-idle.png",
+    "group": "party",
+    "frameW": 68,
+    "frameH": 56,
+    "frames": 4,
+    "fps": 5,
+    "loop": true,
+    "originX": 24,
+    "originY": 54
+  },
+  "borek-attack": {
+    "file": "borek-attack.png",
+    "group": "party",
+    "frameW": 68,
+    "frameH": 56,
+    "frames": 6,
+    "fps": 12,
+    "loop": false,
+    "originX": 24,
+    "originY": 54
+  },
+  "borek-hurt": {
+    "file": "borek-hurt.png",
+    "group": "party",
+    "frameW": 68,
+    "frameH": 56,
+    "frames": 3,
+    "fps": 10,
+    "loop": false,
+    "originX": 24,
+    "originY": 54
+  },
+  "borek-defend": {
+    "file": "borek-defend.png",
+    "group": "party",
+    "frameW": 68,
+    "frameH": 56,
+    "frames": 3,
+    "fps": 6,
+    "loop": true,
+    "originX": 24,
+    "originY": 54
+  },
+  "lumi-idle": {
+    "file": "lumi-idle.png",
+    "group": "party",
+    "frameW": 64,
+    "frameH": 52,
+    "frames": 4,
+    "fps": 6,
+    "loop": true,
+    "originX": 22,
+    "originY": 50
+  },
+  "lumi-attack": {
+    "file": "lumi-attack.png",
+    "group": "party",
+    "frameW": 64,
+    "frameH": 52,
+    "frames": 6,
+    "fps": 12,
+    "loop": false,
+    "originX": 22,
+    "originY": 50
+  },
+  "lumi-hurt": {
+    "file": "lumi-hurt.png",
+    "group": "party",
+    "frameW": 64,
+    "frameH": 52,
+    "frames": 3,
+    "fps": 10,
+    "loop": false,
+    "originX": 22,
+    "originY": 50
+  },
+  "lumi-defend": {
+    "file": "lumi-defend.png",
+    "group": "party",
+    "frameW": 64,
+    "frameH": 52,
+    "frames": 3,
+    "fps": 6,
+    "loop": true,
+    "originX": 22,
+    "originY": 50
+  },
+  "budzikot-idle": {
+    "file": "budzikot-idle.png",
+    "group": "enemy",
+    "frameW": 56,
+    "frameH": 56,
+    "frames": 4,
+    "fps": 5,
+    "loop": true,
+    "originX": 27,
+    "originY": 53
+  },
+  "budzikot-hurt": {
+    "file": "budzikot-hurt.png",
+    "group": "enemy",
+    "frameW": 56,
+    "frameH": 56,
+    "frames": 3,
+    "fps": 10,
+    "loop": false,
+    "originX": 27,
+    "originY": 53
+  },
+  "budzikot-attack": {
+    "file": "budzikot-attack.png",
+    "group": "enemy",
+    "frameW": 56,
+    "frameH": 56,
+    "frames": 2,
+    "fps": 12,
+    "loop": true,
+    "originX": 27,
+    "originY": 53
+  },
+  "chmurnik-idle": {
+    "file": "chmurnik-idle.png",
+    "group": "enemy",
+    "frameW": 60,
+    "frameH": 52,
+    "frames": 4,
+    "fps": 5,
+    "loop": true,
+    "originX": 30,
+    "originY": 46
+  },
+  "chmurnik-hurt": {
+    "file": "chmurnik-hurt.png",
+    "group": "enemy",
+    "frameW": 60,
+    "frameH": 52,
+    "frames": 3,
+    "fps": 10,
+    "loop": false,
+    "originX": 30,
+    "originY": 46
+  },
+  "chmurnik-attack": {
+    "file": "chmurnik-attack.png",
+    "group": "enemy",
+    "frameW": 60,
+    "frameH": 52,
+    "frames": 2,
+    "fps": 10,
+    "loop": true,
+    "originX": 30,
+    "originY": 46
+  },
+  "soul": {
+    "file": "soul.png",
+    "group": "soul",
+    "frameW": 11,
+    "frameH": 11,
+    "frames": 2,
+    "fps": 4,
+    "loop": true
+  },
+  "bullet-orb": {
+    "file": "bullet-orb.png",
+    "group": "bullet",
+    "frameW": 12,
+    "frameH": 12,
+    "frames": 2,
+    "fps": 8,
+    "loop": true
+  },
+  "bullet-shard": {
+    "file": "bullet-shard.png",
+    "group": "bullet",
+    "frameW": 16,
+    "frameH": 10,
+    "frames": 2,
+    "fps": 8,
+    "loop": true
+  },
+  "bullet-drop": {
+    "file": "bullet-drop.png",
+    "group": "bullet",
+    "frameW": 14,
+    "frameH": 8,
+    "frames": 2,
+    "fps": 8,
+    "loop": true
+  },
+  "bullet-bolt": {
+    "file": "bullet-bolt.png",
+    "group": "bullet",
+    "frameW": 30,
+    "frameH": 12,
+    "frames": 3,
+    "fps": 16,
+    "loop": true
+  },
+  "bullet-star": {
+    "file": "bullet-star.png",
+    "group": "bullet",
+    "frameW": 15,
+    "frameH": 15,
+    "frames": 2,
+    "fps": 6,
+    "loop": true
+  },
+  "bullet-zet": {
+    "file": "bullet-zet.png",
+    "group": "bullet",
+    "frameW": 12,
+    "frameH": 12,
+    "frames": 2,
+    "fps": 4,
+    "loop": true
+  },
+  "bullet-cog": {
+    "file": "bullet-cog.png",
+    "group": "bullet",
+    "frameW": 18,
+    "frameH": 18,
+    "frames": 2,
+    "fps": 10,
+    "loop": true
+  },
+  "icon-fight": {
+    "file": "icon-fight.png",
+    "group": "icon",
+    "frameW": 14,
+    "frameH": 14,
+    "frames": 2,
+    "fps": 6,
+    "loop": true
+  },
+  "icon-act": {
+    "file": "icon-act.png",
+    "group": "icon",
+    "frameW": 14,
+    "frameH": 14,
+    "frames": 2,
+    "fps": 6,
+    "loop": true
+  },
+  "icon-magic": {
+    "file": "icon-magic.png",
+    "group": "icon",
+    "frameW": 14,
+    "frameH": 14,
+    "frames": 2,
+    "fps": 6,
+    "loop": true
+  },
+  "icon-item": {
+    "file": "icon-item.png",
+    "group": "icon",
+    "frameW": 14,
+    "frameH": 14,
+    "frames": 2,
+    "fps": 6,
+    "loop": true
+  },
+  "icon-spare": {
+    "file": "icon-spare.png",
+    "group": "icon",
+    "frameW": 14,
+    "frameH": 14,
+    "frames": 2,
+    "fps": 6,
+    "loop": true
+  },
+  "icon-defend": {
+    "file": "icon-defend.png",
+    "group": "icon",
+    "frameW": 14,
+    "frameH": 14,
+    "frames": 2,
+    "fps": 6,
+    "loop": true
+  },
+  "fx-slash": {
+    "file": "fx-slash.png",
+    "group": "fx",
+    "frameW": 40,
+    "frameH": 40,
+    "frames": 5,
+    "fps": 20,
+    "loop": false
+  },
+  "fx-hit": {
+    "file": "fx-hit.png",
+    "group": "fx",
+    "frameW": 28,
+    "frameH": 28,
+    "frames": 4,
+    "fps": 18,
+    "loop": false
+  },
+  "fx-heal": {
+    "file": "fx-heal.png",
+    "group": "fx",
+    "frameW": 32,
+    "frameH": 36,
+    "frames": 6,
+    "fps": 12,
+    "loop": false
+  },
+  "fx-sparkle": {
+    "file": "fx-sparkle.png",
+    "group": "fx",
+    "frameW": 13,
+    "frameH": 13,
+    "frames": 4,
+    "fps": 12,
+    "loop": true
+  },
+  "bg-night": {
+    "file": "bg-night.png",
+    "group": "bg",
+    "frameW": 96,
+    "frameH": 96,
+    "frames": 1,
+    "fps": 1,
+    "loop": true
+  }
+}

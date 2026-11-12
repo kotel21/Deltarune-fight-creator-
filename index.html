@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Fight Creator</title>
+    <meta name="claude:viewport-fit-sides" content="cover" />
+    <meta name="description" content="Fight Creator — edytor i silnik turowych walk z unikaniem pocisków." />
+  </head>
+  <body>
+    <div id="app">
+      <header class="bar">
+        <span class="brand">FIGHT CREATOR</span>
+        <span class="badge" id="stage-badge">Etap 1 · silnik walki</span>
+        <span class="spacer"></span>
+        <button class="tool" id="btn-restart" type="button" title="Zacznij walkę od nowa">Od nowa</button>
+        <button class="tool" id="btn-mute" type="button" title="Włącz / wyłącz dźwięk">Dźwięk: wł.</button>
+        <button class="tool" id="btn-scale" type="button" title="Skalowanie obrazu: automatyczne dopasowanie albo wyłącznie całkowite krotności pikseli">Skala: auto</button>
+        <button class="tool" id="btn-full" type="button" title="Pełny ekran">Pełny ekran</button>
+      </header>
+
+      <main id="stage-wrap">
+        <div id="stage">
+          <canvas id="game" width="640" height="480" tabindex="0" aria-label="Ekran walki"></canvas>
+          <div id="overlay">
+            <div class="card">
+              <h1>Pobudka w deszczu</h1>
+              <p class="lead">Przykładowa walka: Iskra, Borek i Lumi kontra Budzikot i Chmurnik.</p>
+              <button id="btn-start" type="button" disabled>Wczytywanie…</button>
+              <ul class="keys">
+                <li><kbd>←↑↓→</kbd> ruch i wybór</li>
+                <li><kbd>Z</kbd> / <kbd>Enter</kbd> zatwierdź</li>
+                <li><kbd>X</kbd> / <kbd>Shift</kbd> cofnij, wolniejszy ruch</li>
+                <li><kbd>C</kbd> / <kbd>Ctrl</kbd> pauza</li>
+              </ul>
+              <p class="note" id="overlay-note">Działa też pad oraz przyciski dotykowe.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div id="touch" hidden>
+        <div class="dpad" id="dpad" aria-label="Krzyżak">
+          <span class="arrow up">▲</span><span class="arrow left">◀</span><span class="arrow right">▶</span><span class="arrow down">▼</span>
+        </div>
+        <div class="abc">
+          <button type="button" data-act="menu" aria-label="Pauza (C)">C</button>
+          <button type="button" data-act="cancel" aria-label="Cofnij (X)">X</button>
+          <button type="button" data-act="confirm" aria-label="Zatwierdź (Z)">Z</button>
+        </div>
+      </div>
+
+      <footer class="legend">
+        <span><kbd>←↑↓→</kbd> ruch</span>
+        <span><kbd>Z</kbd> zatwierdź</span>
+        <span><kbd>X</kbd> cofnij / wolniej</span>
+        <span><kbd>C</kbd> pauza</span>
+        <span class="spacer"></span>
+        <span class="dim" id="fps"></span>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -207,22 +207,32 @@ export class Arena {
     }
   }
 
-  render(ctx: Ctx, o: { boxColor: string; fillColor: string; soul: SpriteRes | null; sprite: (id: string) => SpriteRes | null; time: number }): void {
+  /** Czy punkt leży wewnątrz pudełka (z marginesem w pikselach). */
+  contains(x: number, y: number, margin = 0): boolean {
+    const hw = this.w / 2 + margin;
+    const hh = this.h / 2 + margin;
+    const dx = x - this.cx;
+    const dy = y - this.cy;
+    if (this.shape === 'ellipse') return (dx * dx) / (hw * hw) + (dy * dy) / (hh * hh) <= 1;
+    return Math.abs(dx) <= hw && Math.abs(dy) <= hh;
+  }
+
+  render(ctx: Ctx, o: { boxColor: string; fillColor: string; glowColor: string; soul: SpriteRes | null; sprite: (id: string) => SpriteRes | null; time: number }): void {
     if (this.phase === 'closed') return;
     const s = this.phase === 'closing' ? easeInCubic(this.open) : easeOutBack(this.open);
     const bw = Math.max(0, Math.round((this.w * s) / 2) * 2);
     const bh = Math.max(0, Math.round((this.h * s) / 2) * 2);
     this.drawBox(ctx, bw, bh, o.boxColor, o.fillColor);
 
-    // pociski
+    // pociski — poza pudełkiem są przygaszone, żeby nie zasłaniały sceny, ale było widać, co nadlatuje
     const fade = this.phase === 'closing' ? this.open : 1;
     for (const b of this.bullets) {
       const spr = o.sprite(b.type.sprite);
       if (!spr) continue;
-      let alpha = fade;
-      if (b.warn > 0) alpha *= Math.floor(o.time * 12) % 2 ? 0.5 : 0.22;
+      let alpha = fade * (this.contains(b.x, b.y, 10) ? 1 : 0.4);
+      if (b.warn > 0) alpha *= Math.floor(o.time * 12) % 2 ? 0.6 : 0.28;
       else if (b.age < 0.08) alpha *= 0.4 + (b.age / 0.08) * 0.6;
-      drawSprite(ctx, spr, (b.age + o.time * 0.0001) * spr.fps, b.x, b.y, {
+      drawSprite(ctx, spr, b.age * spr.fps, b.x, b.y, {
         rot: b.rot ? rad(b.rot) : 0,
         scale: spr.scale * b.scale,
         alpha,
@@ -233,7 +243,10 @@ export class Arena {
     // serduszko
     if (o.soul && this.phase !== 'closing' && this.open > 0.6) {
       if (this.grazeGlow > 0) {
-        drawSprite(ctx, o.soul, 0, this.soulX, this.soulY, { tint: '#ffffff', scale: o.soul.scale * (1.35 + (1 - this.grazeGlow) * 0.9), alpha: this.grazeGlow * 0.6 });
+        // poświata grazingu: dwie rozszerzające się sylwetki serduszka w kolorze TP
+        const g = this.grazeGlow;
+        drawSprite(ctx, o.soul, 0, this.soulX, this.soulY, { tint: o.glowColor, scale: o.soul.scale * (1.5 + (1 - g) * 1.1), alpha: g * 0.45 });
+        drawSprite(ctx, o.soul, 0, this.soulX, this.soulY, { tint: '#ffffff', scale: o.soul.scale * (1.2 + (1 - g) * 0.4), alpha: Math.min(1, g * 1.2) });
       }
       const blink = this.inv > 0 && Math.floor(this.inv * 14) % 2 === 0;
       if (!blink) drawSprite(ctx, o.soul, o.time * o.soul.fps, this.soulX, this.soulY);

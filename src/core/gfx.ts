@@ -151,6 +151,48 @@ export function drawSprite(ctx: Ctx, s: SpriteRes, frameIndex: number, x: number
   ctx.globalAlpha = prevAlpha;
 }
 
+export interface Bounds {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+}
+
+const boundsCache = new WeakMap<SpriteRes, Bounds>();
+
+/**
+ * Granice nieprzezroczystej części pierwszej klatki sprite'a (w pikselach klatki).
+ * Dzięki temu znaczniki i napisy trafiają nad faktyczną sylwetkę, także dla wgranych grafik
+ * z dużym pustym marginesem.
+ */
+export function spriteBounds(s: SpriteRes): Bounds {
+  let b = boundsCache.get(s);
+  if (b) return b;
+  b = { left: 0, top: 0, right: s.frameW, bottom: s.frameH };
+  try {
+    const c = document.createElement('canvas');
+    c.width = s.frameW;
+    c.height = s.frameH;
+    const cx = c.getContext('2d', { willReadFrequently: true })!;
+    cx.drawImage(s.image, 0, 0, s.frameW, s.frameH, 0, 0, s.frameW, s.frameH);
+    const d = cx.getImageData(0, 0, s.frameW, s.frameH).data;
+    let l = s.frameW, t = s.frameH, r = -1, bt = -1;
+    for (let y = 0; y < s.frameH; y++)
+      for (let x = 0; x < s.frameW; x++) {
+        if (d[(y * s.frameW + x) * 4 + 3] < 24) continue;
+        if (x < l) l = x;
+        if (x > r) r = x;
+        if (y < t) t = y;
+        if (y > bt) bt = y;
+      }
+    if (r >= 0) b = { left: l, top: t, right: r + 1, bottom: bt + 1 };
+  } catch {
+    /* obraz z innej domeny bez CORS — zostają granice całej klatki */
+  }
+  boundsCache.set(s, b);
+  return b;
+}
+
 /** Stan odtwarzania animacji klatkowej. */
 export class Anim {
   t = 0;
